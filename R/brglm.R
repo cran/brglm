@@ -2,7 +2,7 @@
 ##   or 'glm' and 'glm.fit', respectively.
 ## * 'print.brglm' is a modification of 'print.glm'
 ## * 'summary.brglm' is a modification of 'summary.brglm'
-## * 'print.summary.brglm' is a modification of 'print.summaryglm'
+## * 'print.summary.brglm' is a modification of 'print.summary.glm'
 ## Ioannis Kosmidis <I.Kosmidis@warwick.ac.uk> [15/02/2008]
 `brglm` <-
 function (formula, family = binomial, data, weights, subset, 
@@ -58,6 +58,7 @@ function (formula, family = binomial, data, weights, subset,
         model.matrix(mt, mf, contrasts)
     else matrix(, NROW(Y), 0)
     Xmax <- apply(abs(Xor), 2, max)
+    Xmax[Xmax==0] <- 1
     X <- sweep(Xor, 2, Xmax, "/")
     weights <- as.vector(model.weights(mf))
     if (!is.null(weights) && !is.numeric(weights)) 
@@ -93,7 +94,8 @@ function (formula, family = binomial, data, weights, subset,
             fit$redundant
         else rep.int(0, nPars)
         fit$coefficients <- fit$coefficients/Xmax[!redundant]
-        fit$qr <- qr(sqrt(fit$weights) * Xor[, !redundant])
+        #fit$qr <- qr(sqrt(fit$weights) * Xor[, !redundant])  
+        fit$qr <- qr(sqrt(fit$weights) * Xor)
         if (br) {
             fit$FisherInfo <- fit$FisherInfo * tcrossprod(Xmax[!redundant])
             fit$control.brglm <- control.brglm
@@ -123,6 +125,7 @@ function (formula, family = binomial, data, weights, subset,
     class(fit) <- c("brglm", "glm", "lm")
     fit
 }
+
 `brglm.fit` <-
 function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL, 
     mustart = NULL, offset = rep(0, nobs), family = binomial(), 
@@ -175,7 +178,7 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
     redundant <- is.na(temp.fit$coefficients)
     if (any(redundant)) {
         x <- x[, -which(redundant), drop = FALSE]
-        nvars <- nvars - 1
+        nvars <- nvars - sum(redundant)
     }
     nIter <- 0
     test <- TRUE
@@ -188,6 +191,7 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
         W.X <- sqrt(ww) * x
         XWXinv <- chol2inv(chol(crossprod(W.X)))
         hats <- gethats(nobs, nvars, x.t, XWXinv, ww)
+        #hats <- diag(x%*%XWXinv%*%t(ww * x))
         cur.model <- cur.repr(ps)
         wt <- weights + hats * cur.model$at
         y.adj <- (y.count + hats * cur.model$ar)/wt

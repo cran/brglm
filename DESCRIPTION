@@ -1,8 +1,8 @@
 Package: brglm
 Type: Package
 Title: Bias-reduction in binomial-response GLMs.
-Version: 0.5-2
-Date: 2008-02-24
+Version: 0.5-3
+Date: 2008-04-09
 Author: Ioannis Kosmidis <I.Kosmidis@warwick.ac.uk>
 Maintainer: Ioannis Kosmidis <I.Kosmidis@warwick.ac.uk>
 URL: http://go.warwick.ac.uk/kosmidis
@@ -10,4 +10,4 @@ Description: Fit binomial-response GLMs using either a modified-score approach t
 License: GPL (>= 2)
 Depends: R (>= 2.6.0), profileModel
 Suggests: MASS
-Packaged: Sun Feb 24 19:30:50 2008; yiannis
+Packaged: Wed Apr  9 17:47:21 2008; yiannis

@@ -1,3 +1,9 @@
+Changes since version 0.5.2
+----------------------------
+*	Corrected a bug in brglm that could cause division by zero while scaling the design matrix
+*	Due to a bug, brglm.fit was producing errors with model fits containing more that one aliased out parameters. This is now corrected. (thanks to Aleks Jakulin for spotting the issue)
+*	Corrected a bug, that could affect the predict methods when aliased out parameters appeared (thanks to Aleks Jakulin for spotting the issue). 
+
 Changes since version 0.5-1:
 ----------------------------
 *	Correction of typos (sorry!) and various improvements of the help files.
