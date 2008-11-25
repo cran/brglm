@@ -10,6 +10,7 @@ function (fitted, gridsize = 10, stdn = 5, stepsize = 0.5, level = 0.95,
     which = 1:length(coef(fitted)), verbose = TRUE, zero.bound = 1e-08, 
     scale = FALSE, ...) 
 {
+    notNA <- !is.na(fitted$coefficients)
     if (level <= 0 | level >= 1) 
         stop("invalid 'level'.")
     if (fitted$method == "glm.fit") {
@@ -19,20 +20,19 @@ function (fitted, gridsize = 10, stdn = 5, stepsize = 0.5, level = 0.95,
             stepsize = stepsize, grid.bounds = NULL, quantile = qchisq(level, 
                 1), objective = "ordinaryDeviance", agreement = TRUE, 
             verbose = FALSE, trace.prelim = FALSE, which = which, 
-            profTraces = TRUE, zero.bound = zero.bound, scale = scale, 
-            stdErrors = summary(fitted)$coefficients[, 2])
+            profTraces = TRUE, zero.bound = zero.bound, scale = scale)
         res2 <- NULL
     }
     else {
         fitted1 <- update(fitted, method = "glm.fit")
+        Xmat <- model.matrix(fitted)[, notNA]
         if (verbose) 
             cat("Profiling the ordinary deviance for the corresponding ML fit...\n")
         res1 <- profileModel(fitted1, gridsize = gridsize, stdn = stdn, 
             stepsize = stepsize, grid.bounds = NULL, quantile = qchisq(level, 
                 1), objective = "ordinaryDeviance", agreement = TRUE, 
             verbose = FALSE, trace.prelim = FALSE, which = which, 
-            profTraces = TRUE, zero.bound = zero.bound, scale = scale, 
-            stdErrors = summary(fitted1)$coefficients[, 2])
+            profTraces = TRUE, zero.bound = zero.bound, scale = scale)
         if (fitted$pl | all(fitted$family$link == "logit")) {
             if (verbose) 
                 cat("Profiling the penalized deviance for the supplied fit...\n")
@@ -41,8 +41,8 @@ function (fitted, gridsize = 10, stdn = 5, stepsize = 0.5, level = 0.95,
                 quantile = qchisq(level, 1), objective = "penalizedDeviance", 
                 agreement = TRUE, verbose = FALSE, trace.prelim = FALSE, 
                 which = which, profTraces = TRUE, zero.bound = zero.bound, 
-                scale = scale, stdErrors = summary(fitted)$coefficients[, 
-                  2], X = model.matrix(fitted))
+                scale = scale,
+                X = model.matrix(fitted)[,!is.na(fitted$coefficients)])
         }
         else {
             if (verbose) 
@@ -52,8 +52,8 @@ function (fitted, gridsize = 10, stdn = 5, stepsize = 0.5, level = 0.95,
                 quantile = qchisq(level, 1), objective = "modifiedScoreStatistic", 
                 agreement = TRUE, verbose = FALSE, trace.prelim = FALSE, 
                 which = which, profTraces = TRUE, zero.bound = zero.bound, 
-                scale = scale, stdErrors = summary(fitted)$coefficients[, 
-                  2], X = model.matrix(fitted))
+                scale = scale,
+                X = model.matrix(fitted)[,!is.na(fitted$coefficients)])
         }
     }
     res <- list(profilesML = res1, profilesBR = res2)

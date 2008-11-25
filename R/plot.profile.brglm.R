@@ -8,7 +8,7 @@ function (x, colours = 2:3, ...)
     else {
         pairs(x$profilesML, colours = colours,
                title = "Ordinary deviance", ...)
-        get(getOption("device"))()
+        getOption("device")()
         fit <- x$profilesBR$fit
         tt <- if (fit$pl | all(fit$family$link == "logit"))
               "Penalized deviance"
@@ -38,7 +38,7 @@ function (x, signed = FALSE, interpolate = TRUE,
              n.interpolations = n.interpolations,
              print.grid.points = print.grid.points,
              title = "Ordinary deviance", ...)
-        get(getOption("device"))()
+        getOption("device")()
         fit <- x$profilesBR$fit
         tt <- if (fit$pl | all(fit$family$link == "logit"))
               "Penalized deviance"

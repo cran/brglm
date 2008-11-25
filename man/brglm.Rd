@@ -87,7 +87,7 @@ steps:
 \enumerate{
 \item  Calculate the diagonal components of the hat matrix (see
 \code{\link{gethats}} and \code{\link{hatvalues}}).
-\item Obtain the pseudo data representation at the current value of the
+\item Obtain the pseudo-data representation at the current value of the
 parameters (see \code{\link{modifications}} for more information).
 \item Fit a local GLM, using \code{\link{glm.fit}} on the pseudo data.
 \item Adjust the quadratic weights to agree with the original
@@ -190,28 +190,14 @@ For other language related details see the details section in
      as it is in the binomial family and it could cause inflation of the
      variance (see Firth,  1993).
   
-  3. The modified score approach will result in second-order unbiased
-     estimates. However, for exponential families that are not in
-     canonical parameterization, Kosmidis (2007) (see also Kosmidis and
-     Firth, 2008) shows that there is not a pseudo-likelihood
-     representation that corresponds to the modified scores. This
-     raises difficulties in model comparison.  On the other hand,
-     despite the fact that penalizing the likelihood by Jeffreys
-     invariant prior does not achieve reduction of the bias at this
-     order of magnitude, the profiles of the penalized likelihood can be
-     used for the construction of confidence intervals (see Heinze, 2002
-     and Bull et. al., 2007 and \code{\link{confint.brglm}} for more
-     details) and furthermore the penalized likelihood can be used for
-     model comparison.
-
-  4. Basically, the differences between maximum likelihood, maximum
+  3. Basically, the differences between maximum likelihood, maximum
      penalized likelihood and the modified scores approach are more
      apparent in small sample sizes, in sparse data sets and in cases
      where complete or quasi-complete separation occurs. Asymptotically
      (as \eqn{n} goes to infinity), the three different approaches are
      equivalent to first order.
          
-  5. When an offset is not present in the model, the modified-scores based
+  4. When an offset is not present in the model, the modified-scores based
      estimates are usually smaller in magnitude than the corresponding
      maximum likelihood estimates, shrinking towards the origin of the
      scale imposed by the link function. Thus, the corresponding
@@ -227,17 +213,16 @@ For other language related details see the details section in
      prior is maximized or equivalently where the  quadratic weights are
      simultaneously maximized (see Kosmidis, 2007).
 
-  6. Implementations of the bias-reduction method for logistic
-     regressions can also be found in the packages \pkg{brlr} and
-     \pkg{logistf}. In addition to the obvious advantage of \code{brglm} in
-     the range of link functions that can be used (\code{"logit"},
-     \code{"probit"}, \code{"cloglog"} and \code{"cauchit"}),
-     \code{brglm} is also more efficient computationally. Furthermore,
-     for any user-specified link function (see the Example section of
-     \code{\link{family}}), the user can specify the corresponding
-     pseudo-data representation to be used within \code{brglm} (see
-     \code{\link{modifications}} for details).
-}
+  5. Implementations of the bias-reduction method for logistic
+     regressions can also be found in the \pkg{logistf} package. In
+     addition to the obvious advantage of \code{brglm} in the range of
+     link functions that can be used (\code{"logit"}, \code{"probit"},
+     \code{"cloglog"} and \code{"cauchit"}), \code{brglm} is also more
+     efficient computationally. Furthermore, for any user-specified link
+     function (see the Example section of \code{\link{family}}), the
+     user can specify the corresponding pseudo-data representation to be
+     used within \code{brglm} (see \code{\link{modifications}} for
+     details).  }
 
 \section{Warnings}{
   1. It is not advised to use methods associated with model comparison
@@ -290,7 +275,8 @@ For other language related details see the details section in
   Warwick.
 
   Kosmidis, I. and Firth, D. (2008). Bias reduction in exponential
-  family nonlinear models. (submitted)
+  family nonlinear models. \emph{CRiSM Working Paper Series}
+  \bold{8-5}, \url{http://www2.warwick.ac.uk/fac/sci/statistics/crism/research/2008/paper08-05}.
 }
 
 \author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}

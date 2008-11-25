@@ -22,10 +22,7 @@ times of day.
 	\code{"late"}}
   }
 }
-\note{
-    The lizards data set is as in the \pkg{brlr} package. It was converted
-    to .rda and was included in the \pkg{brglm} package.
-}
+
 \source{  
   McCullagh, P. and Nelder, J. A. (1989) \emph{Generalized Linear
     Models} (2nd Edition).  London: Chapman and Hall.

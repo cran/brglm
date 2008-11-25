@@ -1,5 +1,5 @@
 ## * 'brglm' and 'brglm.fit' were written using as basis the code
-##   or 'glm' and 'glm.fit', respectively.
+##   of 'glm' and 'glm.fit', respectively.
 ## * 'print.brglm' is a modification of 'print.glm'
 ## * 'summary.brglm' is a modification of 'summary.brglm'
 ## * 'print.summary.brglm' is a modification of 'print.summary.glm'
@@ -169,17 +169,29 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
     }
     options(warn = -1)
     cur.repr <- modifications(family, pl = pl)
+    ### Find rows with zero weight
+    nonzero.w <- which(weights!=0)
     y.count <- y * weights
     wt <- weights + 1
     y.adj <- (y.count + 0.5)/wt
-    temp.fit <- glm.fit(x = x, y = y.adj, weights = wt, start = start, 
-        etastart = etastart, mustart = mustart, offset = offset, 
-        family = family, control = control, intercept = intercept)
+    # Find any aliased out parameters after the removal of any zero weight observations
+    temp.fit <- glm.fit(x = x[nonzero.w,], y = y.adj[nonzero.w],
+                        weights = wt[nonzero.w], start = start,
+                        etastart = etastart[nonzero.w],
+                        mustart = mustart[nonzero.w],
+                        offset = offset[nonzero.w], family = family,
+                        control = control, intercept = intercept)
     redundant <- is.na(temp.fit$coefficients)
+    # Remove columns corresponding to aliased out parameters 
     if (any(redundant)) {
-        x <- x[, -which(redundant), drop = FALSE]
-        nvars <- nvars - sum(redundant)
+      x <- x[, -which(redundant), drop = FALSE]
+      nvars <- nvars - sum(redundant)
     }
+    # Refit to match the dimension of the original data set
+    temp.fit <- glm.fit(x = x, y = y.adj, weights = wt, start = start,
+                        etastart = etastart, mustart = mustart,
+                        offset = offset, family = family,
+                        control = control, intercept = intercept)
     nIter <- 0
     test <- TRUE
     x.t <- t(x)
@@ -187,14 +199,16 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
         nIter <- nIter + 1
         ps <- temp.fit$fitted.values
         etas <- linkfun(ps)
-        ww <- temp.fit$weights/wt * weights
-        W.X <- sqrt(ww) * x
+        ww <- rep(0, nobs)
+        ww[nonzero.w] <- temp.fit$weights[nonzero.w]/wt[nonzero.w] * weights[nonzero.w]
+        W.X <- sqrt(ww[nonzero.w]) * x[nonzero.w, ]
         XWXinv <- chol2inv(chol(crossprod(W.X)))
         hats <- gethats(nobs, nvars, x.t, XWXinv, ww)
         #hats <- diag(x%*%XWXinv%*%t(ww * x))
         cur.model <- cur.repr(ps)
         wt <- weights + hats * cur.model$at
-        y.adj <- (y.count + hats * cur.model$ar)/wt
+        y.adj <- rep(0, nobs)
+        y.adj[nonzero.w] <- (y.count[nonzero.w] + hats[nonzero.w] * cur.model$ar[nonzero.w])/wt[nonzero.w]
         temp.fit <- glm.fit(x = x, y = y.adj, weights = wt, etastart = etas, 
             offset = offset, family = family, control = control, 
             intercept = intercept)
@@ -211,9 +225,10 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
     if (!temp.fit$converged) 
         warning("Iteration limit reached")
     temp.fit$ModifiedScores <- c(modscore)
-    ww <- temp.fit$weights/wt * weights
+    ww <- rep(0, nobs)
+    ww[nonzero.w] <- temp.fit$weights[nonzero.w]/wt[nonzero.w] * weights[nonzero.w]
     temp.fit$weights <- ww
-    W.X <- sqrt(ww) * x
+    W.X <- sqrt(ww[nonzero.w]) * x[nonzero.w, ]
     temp.fit$FisherInfo <- crossprod(W.X)
     XWXinv <- chol2inv(chol(temp.fit$FisherInfo))
     temp.fit$hats <- gethats(nobs, nvars, x.t, XWXinv, ww)
@@ -225,6 +240,9 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
         temp.fit$prior.weights))
     temp.fit$cur.model <- cur.model
     temp.fit$redundant <- redundant
+    aic <- family$aic
+    aic.model <- aic(y, n, ps, weights, temp.fit$deviance)
+    temp.fit$aic <- aic.model + 2 * temp.fit$rank
     temp.fit
 }
 

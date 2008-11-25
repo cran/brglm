@@ -5,10 +5,10 @@ function (object, parm = 1:length(coef(object)), level = 0.95,
     scale = FALSE, method = "smooth", ci.method = "union", 
     n.interpolations = 100, ...) 
 {
-    prof <- profile(object, gridsize = 10, stdn = stdn, stepsize = stepsize, 
+    prof <- profile.brglm(object, gridsize = 10, stdn = stdn, stepsize = stepsize, 
         grid.bounds = NULL, level = level, which = parm, verbose = verbose, 
         zero.bound = zero.bound, scale = scale)
-    ci <- confint(prof, method = method, ci.method = ci.method, 
+    ci <- confint.profile.brglm(prof, method = method, ci.method = ci.method, 
         endpoint.tolerance = endpoint.tolerance, max.zoom = max.zoom, 
         n.interpolations = n.interpolations, verbose = verbose)
     drop(ci)
