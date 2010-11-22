@@ -172,8 +172,8 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
     ### Find rows with zero weight
     nonzero.w <- which(weights!=0)
     y.count <- y * weights
-    wt <- weights + 1
-    y.adj <- (y.count + 0.5)/wt
+    wt <- weights + nvars/nobs
+    y.adj <- (y.count + 0.5*nvars/nobs)/wt
     # Find any aliased out parameters after the removal of any zero weight observations
     temp.fit <- glm.fit(x = x[nonzero.w,], y = y.adj[nonzero.w],
                         weights = wt[nonzero.w], start = start,

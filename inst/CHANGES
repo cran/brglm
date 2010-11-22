@@ -1,3 +1,8 @@
+Changes since version 0.5.4
+----------------------------
+* Improved constant adjustments for starting the fitting procedure in brglm.fit.
+* Updated the references to papers in the help files.
+
 Changes since version 0.5.3 
 ----------------------------
 * Minor corrections to the help files.

@@ -185,7 +185,7 @@ For other language related details see the details section in
   
   2. A similar implementation of the bias-reduction method could be done
      for every GLM, following Kosmidis (2007) (see also Kosmidis and Firth,
-     2008). The full set of families and links will be available in a
+     2009). The full set of families and links will be available in a
      future version. However, bias-reduction is not generally beneficial
      as it is in the binomial family and it could cause inflation of the
      variance (see Firth,  1993).
@@ -274,9 +274,9 @@ For other language related details see the details section in
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
 
-  Kosmidis, I. and Firth, D. (2008). Bias reduction in exponential
-  family nonlinear models. \emph{CRiSM Working Paper Series}
-  \bold{8-5}, \url{http://www2.warwick.ac.uk/fac/sci/statistics/crism/research/2008/paper08-05}.
+  Kosmidis, I. and Firth, D. (2009). Bias reduction in exponential
+  family nonlinear models. \emph{Biometrika}
+  \bold{96}, 793--804.
 }
 
 \author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
