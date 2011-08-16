@@ -26,7 +26,7 @@
 \details{
   See Details in \code{\link[profileModel]{plot.profileModel}}.
 }
-\author{Ioannis Kosmidis <I.Kosmidis@warwick.ac.uk>}
+\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
 \seealso{\code{\link[profileModel]{plot.profileModel}}, \code{\link{profile.brglm}}.}
 \examples{
 # see example in 'confint.brglm'.

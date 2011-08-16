@@ -44,6 +44,6 @@ modifiedScoreStatistic(fm, X, dispersion = 1)
   separation in logistic regression.
   \emph{Statistics in Medicine} \bold{21}, 2409--2419.
 }
-\author{Ioannis Kosmidis <I.Kosmidis@warwick.ac.uk>}
+\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
 \seealso{\code{\link[profileModel]{profileModel}}, \code{\link{profile.brglm}}.}
 \keyword{models}

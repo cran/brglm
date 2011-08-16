@@ -1,3 +1,8 @@
+Changes since version 0.5.5
+----------------------------
+* Added the br.consts argument to brglm.control which offers some handling of the starting values to the brglm.fit iteration.
+* Updated contact and citation information. 
+
 Changes since version 0.5.4
 ----------------------------
 * Improved constant adjustments for starting the fitting procedure in brglm.fit.

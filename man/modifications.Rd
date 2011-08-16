@@ -163,7 +163,7 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
   \code{pmax(get("hats",parent.frame()),.Machine\$double.eps)} within the
   custom modification function (see also Examples).
 }
-\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
 \references{
   Kosmidis, I. (2007). Bias reduction in exponential family nonlinear
   models. \emph{PhD Thesis}, Department of Statistics, University of

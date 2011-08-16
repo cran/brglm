@@ -109,7 +109,7 @@
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
 }
-\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
 
 \seealso{\code{\link[profileModel]{confintModel}}, \code{\link[profileModel]{profileModel}},
   \code{\link{profile.brglm}}. }

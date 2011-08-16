@@ -36,7 +36,7 @@ Lesaffre, E. and Albert, A. (1989). Partial separation in logistic
 discrimination. \emph{J. R. Statist. Soc. \bold{B}}, \bold{51}, 109--116.
 }
 
-\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
 
 \examples{
 ## Begin Example

@@ -279,7 +279,7 @@ For other language related details see the details section in
   \bold{96}, 793--804.
 }
 
-\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
 
 \seealso{\code{\link{glm}}, \code{\link{glm.fit}}}
 
