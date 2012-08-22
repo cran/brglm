@@ -4,7 +4,7 @@
 \description{
   Auxiliary function as user interface for \code{\link{brglm}}
   fitting. Typically only used when calling \code{brglm} or
-  \code{brglm.fit}. 
+  \code{brglm.fit}.
 }
 \usage{
 glm.control1(epsilon = 1e-08, maxit = 25, trace = FALSE, ...)
@@ -21,5 +21,5 @@ glm.control1(epsilon = 1e-08, maxit = 25, trace = FALSE, ...)
   methods. However, this additional arguments have no effect on the
   resultant list.
 }
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 \keyword{iteration}

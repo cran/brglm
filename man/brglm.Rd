@@ -182,21 +182,21 @@ For other language related details see the details section in
     \item{}{and other methods that apply to objects of class
       \code{"glm"}}
   }
-  
+
   2. A similar implementation of the bias-reduction method could be done
      for every GLM, following Kosmidis (2007) (see also Kosmidis and Firth,
      2009). The full set of families and links will be available in a
      future version. However, bias-reduction is not generally beneficial
      as it is in the binomial family and it could cause inflation of the
      variance (see Firth,  1993).
-  
+
   3. Basically, the differences between maximum likelihood, maximum
      penalized likelihood and the modified scores approach are more
      apparent in small sample sizes, in sparse data sets and in cases
      where complete or quasi-complete separation occurs. Asymptotically
      (as \eqn{n} goes to infinity), the three different approaches are
      equivalent to first order.
-         
+
   4. When an offset is not present in the model, the modified-scores based
      estimates are usually smaller in magnitude than the corresponding
      maximum likelihood estimates, shrinking towards the origin of the
@@ -250,7 +250,7 @@ For other language related details see the details section in
   Bull, S. B., Lewinger, J. B. and Lee, S. S. F. (2007). Confidence
   intervals for multinomial logistic regression in sparse
   data. \emph{Statistics in Medicine} \bold{26}, 903--918.
-  
+
   Firth, D. (1992) Bias reduction, the Jeffreys prior and {GLIM}. In
   \emph{Advances in GLIM and statistical modelling: Proceedings of the
   GLIM 92 conference, Munich}, Eds. L.~Fahrmeir, B.~Francis,
@@ -262,14 +262,14 @@ For other language related details see the details section in
 
   Firth, D. (1993). Bias reduction of maximum likelihood
   estimates. \emph{Biometrika} \bold{80}, 27--38.
-  
+
   Heinze, G. and Schemper, M. (2002). A solution to the problem of
   separation in logistic regression. \emph{Statistics in Medicine}
   \bold{21}, 2409--2419.
-  
+
   Konishi, S. and Kitagawa, G. (1996). Generalised information criteria
   in model selection. \emph{Biometrika} \bold{83}, 875--890.
-  
+
   Kosmidis, I. (2007). Bias reduction in exponential family nonlinear
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
@@ -279,7 +279,7 @@ For other language related details see the details section in
   \bold{96}, 793--804.
 }
 
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 
 \seealso{\code{\link{glm}}, \code{\link{glm.fit}}}
 

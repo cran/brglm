@@ -61,8 +61,8 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
   \eqn{\mu}{\mu} with respect to the linear predictor \eqn{\eta}{\eta} of the
   model. All the above are viewed as functions of \eqn{p}. The
   pseudo-data representations have the generic form
-  
-  \tabular{ll}{  
+
+  \tabular{ll}{
     pseudo-response : \tab \eqn{y^*=y + h a_r(p)}{y* = y + h a_r(p)} \cr
     pseudo-totals : \tab \eqn{m^*=m + h a_t(p)}{m* = m + h a_t(p)}, \cr
   }
@@ -82,7 +82,7 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
    \eqn{a_r(p) = d'(p)/w(p) + p - 0.5} \cr
    \eqn{a_t(p) = 0}. \cr
   }
-  
+
   For supplying \eqn{(y^*, m^*)}{(y*, m*)} in \code{\link{glm.fit}} (as is
   done by \code{\link{brglm.fit}}), an essential requirement for the
   pseudo-data representation is that it should mimic the behaviour of the
@@ -104,13 +104,13 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
     \item if a quantity is to be moved from \eqn{a_r(p)} to \eqn{a_t(p)} it
     first has to be divided by \eqn{-p}.
   }
-  
+
   For example, in the case of penalized maximum likelihood, the pairs
   \eqn{(d'(p)/w(p) + p - 0.5 , 0)} and \eqn{(d'(p)/w(p) + p , 0.5/p)} are
   equivalent, in the sense that if the corresponding pseudo-data
   representations are substituted in the ordinary scores both return the
   same expression.
- 
+
   So, in order to construct a pseudo-data representation that
   corresponds to a user-specified link function and has the property
   \eqn{0 \le a_r(p) \le  a_t(p)} for every \eqn{p \in (0, 1)}, one merely
@@ -163,7 +163,7 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
   \code{pmax(get("hats",parent.frame()),.Machine\$double.eps)} within the
   custom modification function (see also Examples).
 }
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 \references{
   Kosmidis, I. (2007). Bias reduction in exponential family nonlinear
   models. \emph{PhD Thesis}, Department of Statistics, University of
@@ -179,7 +179,7 @@ logexp <- function(days = 1) {
   linkfun <- function(mu) qlogis(mu^(1/days))
   linkinv <- function(eta) plogis(eta)^days
   mu.eta <- function(eta) days * plogis(eta)^(days-1) *
-        .Call("logit_mu_eta", eta, PACKAGE = "stats")
+        binomial()$mu.eta(eta)
   valideta <- function(eta) TRUE
   link <- paste("logexp(", days, ")", sep="")
   structure(list(linkfun = linkfun, linkinv = linkinv,
@@ -196,9 +196,9 @@ br.custom.family <- function(p) {
   # scoping. So, make sure that the link-function inputted arguments
   # have unusual names, like `.days' and that
   # the link function enters `brglm' as
-  # `family=binomial(logexp(.days))'. 
-  list(ar=0.5*(1-p)-0.5*(1-p)*exp(etas)/.days,
-       at=0*p/p) # so that to fix the length of at
+  # `family=binomial(logexp(.days))'.
+  list(ar = 0.5*(1-p)-0.5*(1-p)*exp(etas)/.days,
+       at = 0*p/p) # so that to fix the length of at
 }
 .days <-3
 # `.days' could be a vector as well but then it should have the same
@@ -209,7 +209,7 @@ br.custom.family <- function(p) {
 # Check:
 \dontrun{checkModifications(br.custom.family)}
 # OOOPS error message... the condition is not satisfied
-#   
+#
 # After some trivial algebra using the two allowed operations, we
 # get new modifications:
 br.custom.family <- function(p) {
@@ -254,7 +254,7 @@ br.custom.family <- function(p) {
 }
 m1 <- brglm(y/totals~x1+x2,weights=totals,family=binomial(my.probit))
 m2 <- glm((y+0.5)/(totals+1)~x1+x2,weights=totals+1,family=binomial(probit))
-# m1 and m2 should be the same.    
+# m1 and m2 should be the same.
 }
 \keyword{models}
 \keyword{regression}

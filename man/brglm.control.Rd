@@ -38,9 +38,9 @@ brglm.control(br.epsilon = 1e-08, br.maxit = 100, br.trace=FALSE,
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
 }
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 \seealso{
   \code{\link{brglm.fit}}, the fitting procedure used by
-  \code{\link{brglm}}. 
+  \code{\link{brglm}}.
 }
 \keyword{iteration}

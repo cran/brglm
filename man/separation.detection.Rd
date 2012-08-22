@@ -11,8 +11,8 @@ separation.detection(fit, nsteps = 30)
   \item{fit}{the result of a \code{\link{glm}} call.}
   \item{nsteps}{Starting from \code{maxit = 1}, the GLM is refitted for
   \code{maxit = 2}, \code{maxit = 3}, \ldots, \code{maxit = nsteps}. Default
-  value is 30.} 
-} 
+  value is 30.}
+}
 \details{
   Identifies separated cases for binomial-response GLMs, by refitting
   the model. At each iteration the maximum number of allowed IWLS
@@ -36,7 +36,7 @@ Lesaffre, E. and Albert, A. (1989). Partial separation in logistic
 discrimination. \emph{J. R. Statist. Soc. \bold{B}}, \bold{51}, 109--116.
 }
 
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 
 \examples{
 ## Begin Example

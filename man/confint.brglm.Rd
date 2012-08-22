@@ -71,11 +71,11 @@
   conservative as the \dQuote{union} based intervals but illustrate more
   oscillation, which however is not as severe as in the case of the
   penalized likelihood based ones.
-  
+
   The properties of the \dQuote{union} and \dQuote{mean} confidence
   intervals extend  to all the links that are supported by
   \code{\link{brglm}}, when  estimation is performed using maximum
-  penalized likelihood. 
+  penalized likelihood.
 
   In the case of estimation using modified scores and for models other
   than logistic, where there is not an objective that is maximized, the
@@ -96,7 +96,7 @@
   Brown, L. D., Cai, T. T. and DasGupta, A. (2001).
   Interval estimation for a binomial proportion (with discussion).
  \emph{Statistical Science} \bold{16}, 101--117.
-  
+
   Bull, S. B., Lewinger, J. B. and Lee, S. S. F. (2007). Confidence
   intervals for multinomial logistic regression in sparse data.
   \emph{Statistics in Medicine} \bold{26}, 903--918.
@@ -109,7 +109,7 @@
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
 }
-\author{Ioannis Kosmidis, \email{ioannis@stats.ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 
 \seealso{\code{\link[profileModel]{confintModel}}, \code{\link[profileModel]{profileModel}},
   \code{\link{profile.brglm}}. }
@@ -127,7 +127,7 @@ m.brglm.logit <- brglm(y ~ trt * week, family = binomial,
                        data = bacteria, method = "brglm.fit")
 p.glm.logit <- profile(m.glm.logit)
 p.brglm.logit <- profile(m.brglm.logit)
-# 
+#
 plot(p.glm.logit)
 plot(p.brglm.logit)
 # confidence intervals for the glm fit based on the profiles of the

@@ -26,7 +26,7 @@ modifiedScoreStatistic(fm, X, dispersion = 1)
   for the construction of confidence intervals for the bias-reduced
   estimates in logistic regression. The \code{X} argument is the
   model  matrix of the full (\bold{not} the restricted) fit.
-  
+
   \code{modifiedScoreStatistic} mimics \code{\link[profileModel]{RaoScoreStatistic}}
   in \pkg{profileModel}, but with the ordinary scores replaced with the
   modified scores used for bias reduction. The argument \code{X} has
@@ -44,6 +44,6 @@ modifiedScoreStatistic(fm, X, dispersion = 1)
   separation in logistic regression.
   \emph{Statistics in Medicine} \bold{21}, 2409--2419.
 }
-\author{Ioannis Kosmidis, \email{I.Kosmidis@warwick.ac.uk}}
+\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
 \seealso{\code{\link[profileModel]{profileModel}}, \code{\link{profile.brglm}}.}
 \keyword{models}
