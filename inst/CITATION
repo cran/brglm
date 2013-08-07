@@ -1,14 +1,14 @@
 citHeader("To cite package 'brglm' in publications use:")
 
 citEntry(entry="Manual",
-    title = {"brglm: Bias reduction in binary-response GLMs"},
+    title = {"brglm: Bias reduction in binary-response Generalized Linear Models"},
     author = personList(as.person("Ioannis Kosmidis")),
-    year = {2007},
-    note = {"R package version 0.5-6"},
+    year = {2013},
+    note = {"R package version 0.5-8"},
     url = {"http://www.ucl.ac.uk/~ucakiko/software.html"},
     textVersion = paste(
-      "Ioannis Kosmidis (2007).",
-      "brglm: Bias reduction in binary-response GLMs.",
+      "Ioannis Kosmidis (2013).",
+      "brglm: Bias reduction in binary-response Generalized Linear Models.",
       "http://www.ucl.ac.uk/~ucakiko/software.html")
 )
 
