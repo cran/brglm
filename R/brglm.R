@@ -263,8 +263,10 @@ function (x, y, weights = rep(1, nobs), start = NULL, etastart = NULL,
 `print.brglm` <-
 function (x, digits = max(3, getOption("digits") - 3), ...)
 {
-    if (x$method == "glm.fit" | !(nPars <- length(coef(x))))
-        return(print.glm(x, digits, ...))
+    if (x$method == "glm.fit" | !(nPars <- length(coef(x)))) {
+      class(x) <- class(x)[-match("brglm", class(x))]
+      return(print(x, digits, ...))
+    }
     cat("\nCall: ", deparse(x$call), "\n\n")
     if (nPars) {
         cat("Coefficients")
