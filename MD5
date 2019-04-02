@@ -1,4 +1,4 @@
-8c0a8eb41350a60ee133f53ccb394346 *DESCRIPTION
+da13b0188152b027baa605cf3c8514f6 *DESCRIPTION
 a6f7e09e5ba7f23bc0aeb5f084cb47d5 *NAMESPACE
 8be82dff6bb27d4fdec1b5ef47031df5 *R/aaa.R
 46d1f03bd8594faafd6b84fb0dace608 *R/brglm.R
@@ -7,13 +7,13 @@ dde6f49cfeed7fcd9bb3fda14361d44a *R/brglm.control.R
 a95372ff24ea8a1267c2ca50bc7324c5 *R/gethats.R
 fba57f442a1d192852d6fc4e6ab2c0dd *R/glm.control1.R
 cc8635f507ea9b2f8fa06721c49cebbb *R/modifications.R
-031922ad655d8032881b5de929bc8966 *R/plot.profile.brglm.R
+b2d77e5fa7043af91c7042d5dced9007 *R/plot.profile.brglm.R
 6202203d79589cc1ca93e8442474ff88 *R/profile.brglm.R
 b8a96e9bca68064939bb7888b90e816d *R/profileObjectives.R
 0115214483d327cddc398f5eef0a4eba *R/separation.detection.R
 8d904e9bf8f4577a70347d0bdfd01963 *data/lizards.rda
-b9568888ba49ff597bdea310e63bac54 *inst/CHANGES
-38ab8087560b47d2b023b591b87a153e *inst/CITATION
+30bd4f9bab1e8a50091cfb0e7a51a01e *inst/CHANGES
+44031d59b758358219cd72e0402fa90d *inst/CITATION
 881e8a1630e36dfab3ea0feddca9b3db *man/brglm.Rd
 b3b6976c22a8b7d1cb33c69ba7e32a1a *man/brglm.control.Rd
 2ec8eb36e0a9456d239a56f23aa541e4 *man/confint.brglm.Rd
