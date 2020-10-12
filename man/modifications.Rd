@@ -37,15 +37,16 @@ modifications(family, pl = FALSE)
   of the additive modifications to the actual responses and totals,
   respectively.
 
-  Since the resultant function is used in \code{\link{brglm.fit}}, for
+  Since the resulting function is used in \code{\link{brglm.fit}}, for
   efficiency reasons no check is made for \code{p >= 0 | p <= 1}, for
   \code{length(at) == length(p)} and for \code{length(ap) == length(p)}.
 }
 
-\section{Construction of custom pseudo-data representations}{
-  If \eqn{y^*}{y*} are the pseudo-responses (pseudo-counts) and
+\section{Construction of custom pseudo-data representations}{ If
+  \eqn{y^*}{y*} are the pseudo-responses (pseudo-counts) and
   \eqn{m^*}{m*} are the pseudo-totals then we call the pair \eqn{(y^*,
-  m^*)}{(y*, m*)} a pseudo-data representation. Both the modified-scores approach and the maximum penalized likelihood have a common property:
+  m^*)}{(y*, m*)} a pseudo-data representation. Both the modified-scores
+  approach and the maximum penalized likelihood have a common property:
 
 there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
   \eqn{(y, m)} with \eqn{(y^*, m^*)}{(y*, m*)} in the expression for the
@@ -163,8 +164,13 @@ there exists \eqn{(y^*, m^*)}{(y*, m*)} such that if we replace the actual data
   \code{pmax(get("hats",parent.frame()),.Machine\$double.eps)} within the
   custom modification function (see also Examples).
 }
-\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis.kosmidis@warwick.ac.uk}}
 \references{
+  
+  Kosmidis, I. and Firth, D. (2020). Jeffreys-prior penalty,
+  finiteness and shrinkage in binomial-response generalized linear
+  models. \emph{Biometrika}. \url{https://doi.org/10.1093/biomet/asaa052}
+
   Kosmidis, I. (2007). Bias reduction in exponential family nonlinear
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
@@ -255,6 +261,29 @@ br.custom.family <- function(p) {
 m1 <- brglm(y/totals~x1+x2,weights=totals,family=binomial(my.probit))
 m2 <- glm((y+0.5)/(totals+1)~x1+x2,weights=totals+1,family=binomial(probit))
 # m1 and m2 should be the same.
+# End example
+# Begin example 3: Maximum penalized likelihood for logistic regression, 
+# with the penalty being a powerof the Jeffreys prior (`.const` below)
+# Setup a custom logit link
+mylogit <- make.link("logit")
+mylogit$name <- "mylogit"
+## Set-up the custom family
+br.custom.family <- function(p) {
+     list(ar = .const * p/p, at = 2 * .const * p/p)
+}
+data("lizards")
+## The reduced-bias fit is
+.const <- 1/2
+brglm(cbind(grahami, opalinus) ~ height + diameter +
+          light + time, family = binomial(mylogit), data=lizards)
+## which is the same as what brglm does by default for logistic regression
+brglm(cbind(grahami, opalinus) ~ height + diameter +
+          light + time, family = binomial(logit), data=lizards)
+## Stronger penalization (e.g. 5/2) can be achieved by 
+.const <- 5/2
+brglm(cbind(grahami, opalinus) ~ height + diameter +
+          light + time, family = binomial(mylogit), data=lizards)
+# End example 
 }
 \keyword{models}
 \keyword{regression}

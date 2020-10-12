@@ -16,7 +16,7 @@ improvement over traditional maximum likelihood because:
 \itemize{
 \item the bias-reduced estimator is second-order unbiased and has smaller
       variance than the maximum likelihood estimator and
-\item the resultant estimates and their corresponding standard errors
+\item the resulting estimates and their corresponding standard errors
       are \bold{always} finite while the maximum likelihood estimates
       can be infinite (in situations where complete or quasi separation
       occurs).
@@ -138,7 +138,7 @@ For other language related details see the details section in
     parameters at the final iteration. If \code{pl = TRUE} they are the
     derivatives of the penalized likelihood at the final iteration.}
   \item{FisherInfo}{the Fisher information matrix evaluated at the
-    resultant estimates. Only available when \code{method = "brglm.fit"}.}
+    resulting estimates. Only available when \code{method = "brglm.fit"}.}
   \item{hats}{the diagonal elements of the hat matrix. Only available
     when \code{method = "brglm.fit"}}
   \item{nIter}{the number of iterations that were required until
@@ -146,7 +146,7 @@ For other language related details see the details section in
   \item{cur.model}{a list with components \code{ar} and \code{at} which
     contains the values of the additive modifications to the responses
     (\code{y}) and to the binomial totals (\code{prior.weights}) at
-    the resultant estimates (see \code{\link{modifications}} for more
+    the resulting estimates (see \code{\link{modifications}} for more
     information). Only available  when \code{method = "brglm.fit"}.}
   \item{model}{as in \code{\link{glm}}.}
   \item{call}{as in \code{\link{glm}}.}
@@ -230,23 +230,20 @@ For other language related details see the details section in
      \code{\link{anova}}, etc.) on objects of class
      \code{"brglm"}. Model comparison when estimation is performed using
      the modified scores or the penalized likelihood is an on-going
-     research topic and will be implemented as soon as it is  concluded.
+     research topic and will be implemented as soon as it is concluded.
 
-  2. The use of Akaike's information criterion (AIC) for
-     model selection when \code{method = "brglm.fit"} is
-     controversial. AIC was developed under the assumptions that (i)
-     estimation is by maximum likelihood and (ii) that estimation is
-     carried out in a parametric family of distributions that contains
-     the \dQuote{true} model. At least the first assumption is not valid
-     when using \code{method = "brglm.fit"}. However, since the MLE is
-     asymptotically unbiased, asymptotically the modified-scores
-     approach is equivalent to maximum likelihood. A more appropriate
-     information criterion seems to be Konishi's generalized information
-     criterion (see Konishi & Kitagawa, 1996, Sections 3.2 and 3.3), which
-     will be implemented in a future version.
-  }
+  2. The use of Akaike's information criterion (AIC) for model selection
+     when \code{method = "brglm.fit"} is asymptotically valid, because
+     the log-likelihood derivatives dominate the modification (in terms
+     of asymptotic order). 
+}
 
-\references{
+   \references{
+
+     Kosmidis, I. and Firth, D. (2020). Jeffreys-prior penalty,
+     finiteness and shrinkage in binomial-response generalized linear
+     models. \emph{Biometrika}. \url{https://doi.org/10.1093/biomet/asaa052}
+
   Bull, S. B., Lewinger, J. B. and Lee, S. S. F. (2007). Confidence
   intervals for multinomial logistic regression in sparse
   data. \emph{Statistics in Medicine} \bold{26}, 903--918.
@@ -267,9 +264,6 @@ For other language related details see the details section in
   separation in logistic regression. \emph{Statistics in Medicine}
   \bold{21}, 2409--2419.
 
-  Konishi, S. and Kitagawa, G. (1996). Generalised information criteria
-  in model selection. \emph{Biometrika} \bold{83}, 875--890.
-
   Kosmidis, I. (2007). Bias reduction in exponential family nonlinear
   models. \emph{PhD Thesis}, Department of Statistics, University of
   Warwick.
@@ -277,9 +271,10 @@ For other language related details see the details section in
   Kosmidis, I. and Firth, D. (2009). Bias reduction in exponential
   family nonlinear models. \emph{Biometrika}
   \bold{96}, 793--804.
+  
 }
 
-\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis.kosmidis@warwick.ac.uk}}
 
 \seealso{\code{\link{glm}}, \code{\link{glm.fit}}}
 

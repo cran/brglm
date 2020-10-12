@@ -23,7 +23,7 @@ separation.detection(fit, nsteps = 30)
   corresponding ones resulted for
   \code{control = glm.control(maxit = 1)}. Based on the results in Lesaffre
   & Albert (1989), if the sequence of ratios in any column of the
-  resultant matrix diverges, then separation occurs and the maximum
+  resulting matrix diverges, then separation occurs and the maximum
   likelihood estimate for the corresponding parameter has value minus or
   plus infinity.
 }
@@ -32,11 +32,17 @@ separation.detection(fit, nsteps = 30)
   contains the ratios of the estimated asymptotic standard errors.
 }
 \references{
+  Kosmidis, I. and Firth, D. (2020). Jeffreys-prior penalty,
+  finiteness and shrinkage in binomial-response generalized linear
+  models. \emph{Biometrika}. \url{https://doi.org/10.1093/biomet/asaa052}
+  
 Lesaffre, E. and Albert, A. (1989). Partial separation in logistic
-discrimination. \emph{J. R. Statist. Soc. \bold{B}}, \bold{51}, 109--116.
+discrimination. \emph{J. R. Statist. Soc. \bold{B}}, \bold{51},
+109--116.
+
 }
 
-\author{Ioannis Kosmidis, \email{i.kosmidis@ucl.ac.uk}}
+\author{Ioannis Kosmidis, \email{ioannis.kosmidis@warwick.ac.uk}}
 
 \examples{
 ## Begin Example
