@@ -13,14 +13,14 @@ of the maximum likelihood estimator. Fitting is performed using
 pseudo-data representations, as described in Kosmidis (2007, Chapter 5). For
 estimation in binomial-response GLMs, the bias-reduction method is an
 improvement over traditional maximum likelihood because:
-\itemize{
-\item the bias-reduced estimator is second-order unbiased and has smaller
-      variance than the maximum likelihood estimator and
-\item the resulting estimates and their corresponding standard errors
+\describe{
+\item{-}{the bias-reduced estimator is second-order unbiased and has smaller
+      variance than the maximum likelihood estimator, and}
+\item{-}{the resulting estimates and their corresponding standard errors
       are \bold{always} finite while the maximum likelihood estimates
       can be infinite (in situations where complete or quasi separation
       occurs); see Kosmidis & Firth (2021) for the proof of finiteness in
-      logistic regression models.
+      logistic regression models.}
 }
 }
 \usage{
@@ -169,7 +169,7 @@ For other language related details see the details section in
 
 \note{
   1. Supported methods for objects of class \code{"brglm"} are:
-  \itemize{
+  \describe{
     \item{\code{\link{print}}}{through \code{print.brglm}.}
     \item{\code{\link{summary}}}{through \code{summary.brglm}.}
     \item{\code{\link{coefficients}}}{inherited from the
@@ -180,9 +180,9 @@ For other language related details see the details section in
       class.}
     \item{\code{\link{residuals}}}{inherited from the\code{"glm"}
       class.}
-    \item{}{and other methods that apply to objects of class
-      \code{"glm"}}
   }
+
+  and other methods that apply to objects of class \code{"glm"}
 
   2. A similar implementation of the bias-reduction method could be done
      for every GLM, following Kosmidis (2007) (see also Kosmidis and Firth,

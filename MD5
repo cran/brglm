@@ -1,4 +1,4 @@
-17145d04c89877f73e3047f564ba3b97 *DESCRIPTION
+7f1260c08c357ee0b85bbe775e91877b *DESCRIPTION
 a6f7e09e5ba7f23bc0aeb5f084cb47d5 *NAMESPACE
 395d668b73ddb0c457cf74ff92ac674f *R/aaa.R
 46d1f03bd8594faafd6b84fb0dace608 *R/brglm.R
@@ -12,11 +12,11 @@ b2d77e5fa7043af91c7042d5dced9007 *R/plot.profile.brglm.R
 b8a96e9bca68064939bb7888b90e816d *R/profileObjectives.R
 f7897e034ca98eff78ee06174d784dd0 *R/separation.detection.R
 8d904e9bf8f4577a70347d0bdfd01963 *data/lizards.rda
-40f528f7d7f7808099a45070bfc69bca *inst/CHANGES
+0da85d0216c6d25e23ae98040639f6ae *inst/CHANGES
 f59c5b40baec614e4c55003a1f8c78ee *inst/CITATION
 a9119287c77b775ee0b46052565f6e45 *inst/Jeffreys_power.R
 fafa5df97dfc59276cadab173e63f37b *inst/WORDLIST
-65824f453313feb37f1a2d41ad0c0c9c *man/brglm.Rd
+2b8ac6a2edb9bebf884c2fea14170939 *man/brglm.Rd
 0f00cd9100e930a825a30e1f6f298141 *man/brglm.control.Rd
 347fbeed1e2e2c18b39d6f596bffd06d *man/confint.brglm.Rd
 8a1b91b04e940ad2d18a04de10dc0d70 *man/gethats.Rd
@@ -24,7 +24,7 @@ c81f66a78e5ba8a7bc3cd16401eb13f9 *man/glm.control1.Rd
 122e76157012d6ed3144f482e58f3d7d *man/lizards.Rd
 346ead79c59f01f1bb133d6ee844dbbf *man/modifications.Rd
 9a830094b299539c3a37a8793d76b496 *man/plot.profile.brglm.Rd
-cbf70fcadf21e5af7a18d71a2c49f1a1 *man/profile.brglm.Rd
+ae00efdc667673c04e11afa04760ebee *man/profile.brglm.Rd
 63bc090dec0a65cff53f082afc0231d9 *man/profileObjectives.Rd
 dbf7f9daef6de3cb2b57ad335111ed57 *man/separation.detection.Rd
 b634e50417de5d3050c5f7a88e0cce9d *src/brglm_init.c
